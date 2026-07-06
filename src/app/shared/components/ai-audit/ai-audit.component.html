@@ -1,0 +1,79 @@
+<div class="flex flex-col gap-6 h-full animate-fade-in" [formGroup]="bookingForm()">
+  <div>
+    <h4 class="text-lg font-serif text-luxury-charcoal font-semibold flex items-center gap-1.5">
+      <mat-icon class="text-luxury-gold">auto_awesome</mat-icon> Camera Cloud AI Growth Engine
+    </h4>
+    <p class="text-xs text-luxury-charcoal/85 font-medium">Generate a custom-tailored luxury digital growth audit report using advanced generative AI tailored to your property metadata.</p>
+  </div>
+
+  <!-- Trigger Area / Loading Area / Output Area -->
+  <div class="flex-grow flex flex-col justify-center min-h-[250px]">
+    
+    <!-- Default Idle Trigger State -->
+    @if (!isGeneratingAudit() && !aiAuditResult()) {
+      <div class="text-center py-10 flex flex-col items-center gap-4">
+        <div class="w-16 h-16 rounded-full bg-luxury-sand border border-luxury-gold flex items-center justify-center text-luxury-gold shadow-md">
+          <mat-icon class="text-3xl animate-bounce">auto_awesome</mat-icon>
+        </div>
+        <p class="text-sm font-serif font-semibold text-luxury-charcoal">Ready to synthesize your bespoke blueprint?</p>
+        <p class="text-xs text-luxury-charcoal/85 max-w-sm font-medium">We will process your property name ({{bookingForm().get('hotelName')?.value || 'Guest Property'}}), category, and location to stream a premium growth narrative.</p>
+        
+        <button (click)="generateInstantAudit()" type="button" id="start-audit-btn"
+                class="px-6 py-3.5 rounded-full bg-luxury-gold text-luxury-charcoal hover:bg-luxury-charcoal hover:text-luxury-cream text-xs uppercase tracking-widest font-bold transition-all cursor-pointer shadow-lg">
+          Generate Custom Audit Strategy
+        </button>
+      </div>
+    }
+
+    <!-- Loading Shimmer State -->
+    @if (isGeneratingAudit()) {
+      <div class="flex flex-col items-center justify-center py-12 gap-4 text-center">
+        <div class="relative w-20 h-20">
+          <!-- Inner rotating luxury border spinner -->
+          <div class="absolute inset-0 rounded-full border-4 border-luxury-gold/20 border-t-luxury-gold animate-spin"></div>
+          <div class="absolute inset-2 rounded-full border border-luxury-gold/10 bg-luxury-sand flex items-center justify-center">
+            <mat-icon class="text-luxury-gold text-xl animate-pulse">filter_tilt_shift</mat-icon>
+          </div>
+        </div>
+        <p class="text-xs font-mono text-luxury-gold-dark uppercase tracking-widest animate-pulse">
+          {{currentAuditStepText()}}
+        </p>
+        <p class="text-[11px] text-luxury-charcoal/80 max-w-xs italic font-medium">
+          Formulating visual angles & direct conversion frameworks based on hospitality elite criteria.
+        </p>
+      </div>
+    }
+
+    <!-- Strategy Report Output -->
+    @if (!isGeneratingAudit() && aiAuditResult()) {
+      <div class="bg-luxury-sand border border-luxury-gold/35 rounded-xl p-6 relative max-h-[350px] overflow-y-auto shadow-inner select-text text-left">
+        <div class="absolute top-4 right-4 text-[10px] font-mono tracking-wider uppercase text-luxury-gold-dark font-bold bg-luxury-cream border border-luxury-gold/20 px-2 py-0.5 rounded-full">
+          Bespoke Strategy
+        </div>
+        <!-- Formatted report output (Safe binding) -->
+        <div class="prose max-w-none text-xs leading-relaxed" [innerHTML]="aiAuditResult()"></div>
+      </div>
+    }
+
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="flex items-center justify-between border-t border-luxury-gold/20 pt-4 mt-auto shrink-0">
+    <button (click)="back.emit()" type="button"
+            class="text-xs uppercase tracking-wider text-luxury-charcoal/70 hover:text-luxury-charcoal font-bold cursor-pointer">
+      Back to Brand Details
+    </button>
+    <div class="flex gap-2">
+      @if (aiAuditResult()) {
+        <button (click)="generateInstantAudit()" type="button"
+                class="px-4 py-2.5 rounded-full border border-luxury-gold-dark text-luxury-gold-dark text-xs uppercase tracking-wider font-semibold cursor-pointer">
+          Regenerate AI Audit
+        </button>
+      }
+      <button (click)="submitConsultation()" type="button" id="confirm-booking-from-audit-btn"
+              class="px-6 py-3 rounded-full bg-luxury-charcoal text-luxury-cream hover:bg-luxury-gold hover:text-luxury-charcoal text-xs uppercase tracking-widest font-bold transition-all cursor-pointer">
+        Secure Strategic Call Slot
+      </button>
+    </div>
+  </div>
+</div>
