@@ -1,0 +1,224 @@
+<!-- Featured Portfolio Section -->
+<section id="portfolio" class="py-16 md:py-24 lg:py-32 bg-luxury-cream relative overflow-hidden">
+  
+  <!-- Ambient background glow elements as requested in the mockup snippet -->
+  <div class="absolute top-1/4 left-0 w-96 h-96 rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none"></div>
+  <div class="absolute top-2/3 right-0 w-[500px] h-[500px] rounded-full bg-luxury-gold/5 blur-[150px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 2xl:max-w-8xl relative z-10">
+    
+    <!-- Redesigned Header: Capturing The Soul of Space -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8 pb-6 border-b border-luxury-gold/20">
+      <div class="flex flex-col items-start gap-2">
+        <span class="text-xs uppercase tracking-[0.25em] text-luxury-gold-dark font-mono font-bold animate-pulse">Selected Masterpieces</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-luxury-charcoal font-light leading-tight mt-1">
+          Capturing <span class="italic font-normal text-luxury-gold">The Soul of Space</span>
+        </h2>
+        <p class="text-xs sm:text-sm text-luxury-charcoal/80 font-normal mt-2 max-w-xl">
+          Visual stories that inspire, engage and leave a lasting impression.
+        </p>
+      </div>
+
+      <!-- Interactive Filters (Enclosed in a premium light-cream pill-shaped container) -->
+      <div class="flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth bg-luxury-sand p-1.5 rounded-full border border-luxury-gold/25 max-w-full -mx-6 px-6 lg:mx-0 lg:px-1.5 shrink-0 shadow-sm">
+        @for (cat of portfolioCategories; track cat) {
+          <button (click)="setPortfolioFilter(cat)" type="button"
+                  class="px-4 py-2 rounded-full text-[10px] uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer text-center whitespace-nowrap shrink-0 flex flex-col items-center justify-center relative group"
+                  [class.bg-luxury-gold]="portfolioFilter() === cat"
+                  [class.text-white]="portfolioFilter() === cat"
+                  [class.text-luxury-charcoal/70]="portfolioFilter() !== cat"
+                  [class.hover:text-luxury-gold]="portfolioFilter() !== cat">
+            {{cat}}
+            @if (portfolioFilter() === cat) {
+              <span class="absolute -bottom-1 text-[6px] text-white">✦</span>
+            }
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Redesigned Portfolio Row with Left Numbering Indicator -->
+    <div class="flex items-stretch gap-6 md:gap-8">
+      
+      <!-- Left Side Vertical Numbering Indicator (matching the mockup) -->
+      <div class="hidden xl:flex flex-col items-center justify-between py-12 text-luxury-charcoal/40 font-mono text-xs w-8 shrink-0">
+        <span class="font-bold text-luxury-charcoal/80">01</span>
+        <div class="w-[1px] flex-grow my-4 bg-gradient-to-b from-luxury-gold/10 via-luxury-gold/50 to-luxury-gold/10 relative">
+          <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-luxury-gold animate-bounce"></div>
+          <div class="absolute top-2/4 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-luxury-gold"></div>
+          <div class="absolute top-3/4 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-luxury-gold"></div>
+        </div>
+        <span class="font-bold text-luxury-charcoal/40">03</span>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 2xl:gap-10 w-full">
+        @for (item of filteredPortfolioItems(); track item.id; let i = $index) {
+          <div class="bg-white border border-luxury-gold/20 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl hover:border-luxury-gold/50 transition-all duration-500 group flex flex-col justify-between h-full">
+            
+            <!-- Image Frame with Rounded Corners (Fully flush to top & sides to prevent any visual gaps) -->
+            <div class="relative overflow-hidden aspect-[4/3] w-full shrink-0">
+              <img [src]="item.image" [alt]="item.title" referrerpolicy="no-referrer"
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10"></div>
+              
+              <!-- Category Badge (Top-Left) -->
+              <div class="absolute top-4 left-4 bg-white/85 backdrop-blur-md border border-black/5 px-3.5 py-1.5 rounded-full text-[9px] uppercase tracking-widest text-luxury-charcoal font-bold shadow-sm">
+                {{item.category}}
+              </div>
+
+              <!-- Top-Right Link Arrow Button (Top-Right) -->
+              <button (click)="openBooking('brand')" type="button"
+                      class="absolute top-4 right-4 w-10 h-10 bg-white hover:bg-luxury-gold text-luxury-charcoal hover:text-white rounded-full flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer border-0">
+                <mat-icon class="text-sm font-bold">arrow_outward</mat-icon>
+              </button>
+
+              <!-- Bottom-Left Tag -->
+              <span class="absolute bottom-4 left-4 text-[9px] uppercase tracking-[0.2em] font-mono font-bold text-luxury-gold">
+                Featured Project
+              </span>
+
+              <!-- Bottom-Right Custom Play/Sparkle/Device Icon Based on Category -->
+              <div class="absolute bottom-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white border border-white/20">
+                @if (item.category === 'Photography') {
+                  <mat-icon class="text-base">auto_awesome</mat-icon>
+                } @else if (item.category === 'Videography') {
+                  <mat-icon class="text-base">play_arrow</mat-icon>
+                } @else {
+                  <mat-icon class="text-base">computer</mat-icon>
+                }
+              </div>
+            </div>
+
+            <!-- Content details below image -->
+            <div class="pt-6 pb-6 px-6 flex-grow flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] text-luxury-gold-dark font-mono font-bold tracking-[0.15em] block uppercase">
+                  {{item.tag}}
+                </span>
+                
+                <div class="flex items-start justify-between gap-4 mt-1.5 mb-2.5">
+                  <h3 class="text-xl font-serif text-luxury-charcoal font-bold tracking-tight leading-snug">
+                    {{item.title}}
+                  </h3>
+                  <!-- Small Expand Button -->
+                  <button (click)="openBooking('brand')" type="button"
+                          class="w-7 h-7 rounded-full border border-luxury-gold/35 flex items-center justify-center text-luxury-gold hover:bg-luxury-gold hover:text-white transition-colors cursor-pointer text-xs shrink-0 bg-transparent">
+                    +
+                  </button>
+                </div>
+
+                <p class="text-xs text-luxury-charcoal/70 flex items-center gap-1 font-semibold">
+                  <mat-icon class="text-sm text-luxury-gold">location_on</mat-icon> {{item.hotel}}
+                </p>
+              </div>
+
+              <!-- Growth Stat Box with Trendline -->
+              @if (item.stat) {
+                <div class="bg-luxury-sand/40 border border-luxury-gold/15 rounded-2xl p-4 flex items-center justify-between mt-5">
+                  <div class="flex flex-col">
+                    <span class="text-[9px] uppercase tracking-[0.15em] text-luxury-charcoal/50 font-mono font-bold">Verified Metric</span>
+                    <span class="text-xs font-serif font-bold text-luxury-charcoal mt-0.5 leading-tight">{{item.statLabel}}</span>
+                  </div>
+                  
+                  <div class="flex items-center gap-2">
+                    <span class="text-lg sm:text-xl font-serif font-bold text-luxury-gold-dark">{{item.stat}}</span>
+                    
+                    <!-- SVG Trendlines -->
+                    @if (item.stat.startsWith('-')) {
+                      <!-- Downward Trend -->
+                      <svg class="w-12 h-6 text-red-500 shrink-0" viewBox="0 0 50 20" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M2 3 C 12 3, 18 15, 28 10 C 38 5, 42 16, 48 17" stroke-linecap="round" />
+                      </svg>
+                    } @else {
+                      <!-- Upward Trend -->
+                      <svg class="w-12 h-6 text-luxury-gold shrink-0" viewBox="0 0 50 20" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M2 17 C 10 17, 15 10, 25 12 C 35 14, 40 4, 48 3" stroke-linecap="round" />
+                      </svg>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Elegant Bottom Divider Button matching bottom-link from the user's snippet -->
+    <div class="flex items-center justify-center gap-6 mt-16 max-w-4xl mx-auto">
+      <div class="flex-grow h-[1px] bg-gradient-to-r from-transparent to-luxury-gold/40"></div>
+      <button (click)="openBooking('brand')" type="button"
+              class="px-8 py-4 rounded-full border border-luxury-gold/40 hover:border-luxury-gold hover:bg-luxury-gold hover:text-white transition-all duration-300 text-xs uppercase tracking-widest font-bold flex items-center gap-2 cursor-pointer text-luxury-charcoal bg-transparent hover:shadow-md">
+        Explore All Projects <mat-icon class="text-base">arrow_forward</mat-icon>
+      </button>
+      <div class="flex-grow h-[1px] bg-gradient-to-l from-transparent to-luxury-gold/40"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Why Camera Cloud (Ultra-Premium Dark Edition) -->
+<section class="py-20 md:py-28 lg:py-32 bg-luxury-charcoal relative overflow-hidden">
+  <!-- Subtle decorative ambient gold light in background -->
+  <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none"></div>
+  <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 2xl:max-w-8xl relative z-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+      <span class="text-xs uppercase tracking-[0.25em] text-luxury-gold font-mono font-bold">The Camera Cloud Standard</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-luxury-cream mt-4 leading-tight">
+        Why Discerning <span class="italic font-normal text-luxury-gold">Hoteliers Choose Us</span>
+      </h2>
+      <div class="w-16 h-[1px] bg-luxury-gold/40 mx-auto mt-6"></div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 2xl:gap-12">
+      <!-- Feature 1 -->
+      <div class="bg-white/[0.02] backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10 flex flex-col items-start gap-6 hover:bg-white/[0.05] hover:border-luxury-gold/40 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3),0_0_20px_rgba(197,160,89,0.05)] transition-all duration-500 group h-full">
+        <!-- Icon frame -->
+        <div class="w-12 h-12 bg-luxury-gold/10 rounded-xl flex items-center justify-center text-luxury-gold border border-luxury-gold/30 shadow-inner group-hover:bg-luxury-gold group-hover:text-luxury-charcoal transition-all duration-500">
+          <mat-icon class="text-2xl">auto_stories</mat-icon>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="text-xl sm:text-2xl font-serif text-luxury-cream font-medium group-hover:text-luxury-gold transition-colors duration-300">Creative Storytelling</h3>
+          <p class="text-sm text-luxury-cream/75 font-normal leading-relaxed tracking-wide">
+            We do not just capture spaces; we capture emotions. Every shadow, ray of morning sun, and glass of wine is shot with editorial precision that evokes the true luxury guest feeling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="bg-white/[0.02] backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10 flex flex-col items-start gap-6 hover:bg-white/[0.05] hover:border-luxury-gold/40 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3),0_0_20px_rgba(197,160,89,0.05)] transition-all duration-500 group h-full">
+        <!-- Icon frame -->
+        <div class="w-12 h-12 bg-luxury-gold/10 rounded-xl flex items-center justify-center text-luxury-gold border border-luxury-gold/30 shadow-inner group-hover:bg-luxury-gold group-hover:text-luxury-charcoal transition-all duration-500">
+          <mat-icon class="text-2xl">hotel</mat-icon>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="text-xl sm:text-2xl font-serif text-luxury-cream font-medium group-hover:text-luxury-gold transition-colors duration-300">Hospitality Expertise</h3>
+          <p class="text-sm text-luxury-cream/75 font-normal leading-relaxed tracking-wide">
+            We understand luxury hospitality deeply. We understand average daily rate (ADR), RevPAR, peak seasoning cycles, and direct check-out behaviors. We speak your language.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="bg-white/[0.02] backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/10 flex flex-col items-start gap-6 hover:bg-white/[0.05] hover:border-luxury-gold/40 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3),0_0_20px_rgba(197,160,89,0.05)] transition-all duration-500 group h-full md:col-span-2 lg:col-span-1">
+        <!-- Icon frame -->
+        <div class="w-12 h-12 bg-luxury-gold/10 rounded-xl flex items-center justify-center text-luxury-gold border border-luxury-gold/30 shadow-inner group-hover:bg-luxury-gold group-hover:text-luxury-charcoal transition-all duration-500">
+          <mat-icon class="text-2xl">insights</mat-icon>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h3 class="text-xl sm:text-2xl font-serif text-luxury-cream font-medium group-hover:text-luxury-gold transition-colors duration-300">Performance Driven</h3>
+          <p class="text-sm text-luxury-cream/75 font-normal leading-relaxed tracking-wide">
+            We reject superficial likes and reach vanity metrics. Our ad funnels, search bidding, and conversion optimization are laser-focused on one outcome: scaling direct bookings.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

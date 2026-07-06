@@ -1,0 +1,41 @@
+/* Portfolio Component Stylesheet */
+
+.scale-102 {
+  transform: scale(1.02);
+}
+
+/* Custom Fade in transitions */
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling for filter navigation tabs */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--color-luxury-gold);
+  border-radius: 2px;
+}
+
+/* Custom line clamps for project descriptions */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

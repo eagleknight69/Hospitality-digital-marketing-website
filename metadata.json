@@ -1,0 +1,6 @@
+{
+  "name": "Camera Cloud",
+  "description": "Premium Hotel Digital Marketing Agency Homepage specializing in photography, videography, branding, and high-converting websites for luxury hospitality brands.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

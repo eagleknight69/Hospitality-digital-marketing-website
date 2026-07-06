@@ -1,0 +1,73 @@
+<!-- Testimonials Preview Section -->
+<section id="testimonials" class="scroll-mt-20 md:scroll-mt-24 py-16 md:py-24 lg:py-32 bg-luxury-sand border-y border-luxury-gold/15">
+  <div class="max-w-7xl mx-auto px-6 2xl:max-w-8xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left side header details -->
+      <div class="lg:col-span-5 flex flex-col items-start gap-4 w-full">
+        <span class="text-xs uppercase tracking-widest text-luxury-gold-dark font-mono font-semibold">Endorsements</span>
+        <h2 class="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl 2xl:text-6xl font-serif font-light text-luxury-charcoal leading-tight text-left">
+          What Elite <br>
+          <span class="italic font-normal text-luxury-gold">Hoteliers Say About Us</span>
+        </h2>
+        <p class="text-xs sm:text-sm md:text-base text-luxury-charcoal/95 font-normal leading-relaxed max-w-md text-left">
+          Discover how our photography-first performance formula helps boutique and five-star resorts recaptured their target guest list and lower third-party OTA commissions.
+        </p>
+
+        <!-- Carousel navigation buttons -->
+        <div class="flex items-center gap-3 mt-2 md:mt-4">
+          <button (click)="prevTestimonial()" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-luxury-gold/40 hover:bg-luxury-charcoal hover:text-luxury-cream flex items-center justify-center transition-all cursor-pointer bg-transparent" id="prev-testimonial" type="button">
+            <mat-icon>chevron_left</mat-icon>
+          </button>
+          <button (click)="nextTestimonial()" class="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-luxury-gold/40 hover:bg-luxury-charcoal hover:text-luxury-cream flex items-center justify-center transition-all cursor-pointer bg-transparent" id="next-testimonial" type="button">
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+          <span class="text-xs text-luxury-charcoal/50 ml-2 font-mono">
+            {{activeTestimonial() + 1}} of {{testimonials.length}}
+          </span>
+        </div>
+      </div>
+
+      <!-- Right side Testimonial Card Slider -->
+      <div class="lg:col-span-7 w-full max-w-lg lg:max-w-none mx-auto">
+        <div class="bg-luxury-cream border border-luxury-gold/25 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl relative overflow-hidden animate-fade-in w-full">
+          <!-- Huge Gold Quotation Mark background shadow -->
+          <div class="absolute top-4 right-8 text-7xl sm:text-8xl font-serif text-luxury-gold/15 select-none font-bold">“</div>
+          
+          <div class="flex flex-col gap-6 relative z-10 text-left">
+            <!-- Stars -->
+            <div class="flex items-center gap-1 text-luxury-gold">
+              @for (s of [1,2,3,4,5]; track s) {
+                <mat-icon class="text-xs sm:text-sm">star</mat-icon>
+              }
+            </div>
+
+            <!-- Quote Text -->
+            <p class="text-sm sm:text-base md:text-xl 2xl:text-2xl font-serif font-normal italic text-luxury-charcoal leading-relaxed">
+              "{{testimonials[activeTestimonial()].quote}}"
+            </p>
+
+            <!-- Divider -->
+            <hr class="border-luxury-gold/20 my-2">
+
+            <!-- Author info -->
+            <div class="flex items-center gap-4">
+              <img [src]="testimonials[activeTestimonial()].image" 
+                   [alt]="testimonials[activeTestimonial()].author" 
+                   class="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover border border-luxury-gold/30 shrink-0">
+               <div>
+                <h4 class="font-serif font-bold text-luxury-charcoal text-sm sm:text-base">
+                  {{testimonials[activeTestimonial()].author}}
+                </h4>
+                <p class="text-[10px] sm:text-xs text-luxury-charcoal/85 font-semibold leading-tight mt-0.5">
+                  {{testimonials[activeTestimonial()].role}} &bull; <span class="text-luxury-gold-dark font-bold">{{testimonials[activeTestimonial()].hotel}}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

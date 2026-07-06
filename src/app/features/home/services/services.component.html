@@ -1,0 +1,38 @@
+<!-- Services Grid Section -->
+<section id="services" class="scroll-mt-20 md:scroll-mt-24 py-16 md:py-24 lg:py-32 bg-luxury-sand border-y border-luxury-gold/10">
+  <div class="max-w-7xl mx-auto px-6 text-center 2xl:max-w-8xl">
+    <span class="text-xs uppercase tracking-widest text-luxury-gold-dark font-mono font-semibold">Specialized Capabilities</span>
+    <h2 class="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl 2xl:text-6xl font-serif font-light text-luxury-charcoal mt-3 mb-12 md:mb-16">
+      Precision Marketing for <span class="italic font-normal text-luxury-gold">Elite Hospitality</span>
+    </h2>
+
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 2xl:gap-12">
+      @for (svc of services; track svc.title; let i = $index) {
+        <div class="bg-luxury-cream rounded-2xl border border-luxury-gold/20 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 flex flex-col group h-full">
+          <!-- Visual Container with icon overlay -->
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img [src]="svc.image" [alt]="svc.title" referrerpolicy="no-referrer"
+                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-luxury-charcoal/60 to-transparent"></div>
+            
+            <!-- Round Icon floating -->
+            <div class="absolute top-4 right-4 w-12 h-12 bg-luxury-cream rounded-full border border-luxury-gold/40 flex items-center justify-center text-luxury-gold shadow-md">
+              <mat-icon class="text-xl">{{svc.icon}}</mat-icon>
+            </div>
+          </div>
+
+          <!-- Copy -->
+          <div class="p-6 md:p-8 flex flex-col items-start text-left flex-grow">
+            <span class="text-[10px] tracking-widest uppercase text-luxury-gold-dark font-mono font-semibold mb-2">0{{i+1}} . Capability</span>
+            <h3 class="text-lg sm:text-xl font-serif text-luxury-charcoal mb-3 font-medium">{{svc.title}}</h3>
+            <p class="text-xs sm:text-sm text-luxury-charcoal/90 font-normal leading-relaxed mb-6">{{svc.desc}}</p>
+            <button (click)="onServiceClick(svc)" type="button" class="mt-auto text-xs uppercase tracking-wider font-bold text-luxury-gold-dark hover:text-luxury-charcoal flex items-center gap-1 transition-colors cursor-pointer bg-transparent border-0 p-0">
+              Explore Delivery <mat-icon class="text-base transition-transform group-hover:translate-x-1">arrow_right_alt</mat-icon>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

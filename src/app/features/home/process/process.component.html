@@ -1,0 +1,93 @@
+<!-- Interactive Process Steps -->
+<section id="process" class="py-16 md:py-24 lg:py-32 bg-luxury-cream">
+  <div class="max-w-7xl mx-auto px-6 2xl:max-w-8xl">
+    <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+      <span class="text-xs uppercase tracking-widest text-luxury-gold-dark font-mono font-semibold">Our Methodology</span>
+      <h2 class="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl 2xl:text-6xl font-serif font-light text-luxury-charcoal mt-2">
+        A Seamless Journey to <span class="italic font-normal text-luxury-gold">Digital Growth</span>
+      </h2>
+      <p class="text-xs sm:text-sm text-luxury-charcoal/85 mt-3 font-normal">Click a process phase below to explore custom deliverables and milestones.</p>
+    </div>
+
+    <!-- Timeline Horizontal selector bar (Scrollable on mobile) -->
+    <div class="relative max-w-4xl mx-auto mb-12">
+      <!-- Gray Line connector -->
+      <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-luxury-gold/20 -translate-y-1/2 z-0 hidden md:block"></div>
+      
+      <!-- Interactive Step Selectors (Horizontal swiping on mobile) -->
+      <div class="relative z-10 flex flex-row items-center justify-between gap-4 md:gap-0 overflow-x-auto no-scrollbar pb-3 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0">
+        @for (step of processSteps; track step.number; let idx = $index) {
+          <button (click)="setProcessStep(idx)" type="button"
+                  class="flex-shrink-0 flex flex-col items-center gap-2 group cursor-pointer focus:outline-none bg-transparent border-0 min-w-[100px] sm:min-w-[120px] md:min-w-0">
+            <!-- Step round icon -->
+            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center text-xs sm:text-sm font-bold font-mono transition-all duration-300"
+                 [class.bg-luxury-charcoal]="activeProcessStep() === idx"
+                 [class.text-luxury-cream]="activeProcessStep() === idx"
+                 [class.border-luxury-gold]="activeProcessStep() === idx"
+                 [class.bg-luxury-cream]="activeProcessStep() !== idx"
+                 [class.text-luxury-charcoal/60]="activeProcessStep() !== idx"
+                 [class.border-luxury-gold/30]="activeProcessStep() !== idx"
+                 [class.group-hover:border-luxury-gold]="activeProcessStep() !== idx">
+              {{step.number}}
+            </div>
+            <span class="text-[10px] sm:text-xs uppercase tracking-widest font-bold transition-all"
+                  [class.text-luxury-charcoal]="activeProcessStep() === idx"
+                  [class.border-b-2]="activeProcessStep() === idx"
+                  [class.border-luxury-gold]="activeProcessStep() === idx"
+                  [class.pb-0.5]="activeProcessStep() === idx"
+                  [class.text-luxury-charcoal/60]="activeProcessStep() !== idx"
+                  [class.group-hover:text-luxury-charcoal]="activeProcessStep() !== idx">
+              {{step.title.split(' ')[0]}}
+            </span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- Active Step Detail Content Card -->
+    <div class="max-w-4xl mx-auto bg-luxury-sand rounded-2xl border border-luxury-gold/20 p-6 md:p-12 2xl:p-16 shadow-md animate-fade-in">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Side: Basic Info -->
+        <div class="md:col-span-7 flex flex-col items-start gap-4">
+          <div class="flex items-center gap-3">
+            <span class="text-3xl sm:text-4xl font-serif font-bold text-luxury-gold-dark leading-none">
+              {{processSteps[activeProcessStep()].number}}
+            </span>
+            <div class="w-[1px] h-8 bg-luxury-gold/40"></div>
+            <span class="text-[10px] sm:text-xs uppercase tracking-widest font-mono text-luxury-charcoal/60 bg-luxury-cream border border-luxury-gold/20 px-3 py-1 rounded-full">
+              {{processSteps[activeProcessStep()].duration}}
+            </span>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-serif text-luxury-charcoal font-semibold">
+            {{processSteps[activeProcessStep()].title}}
+          </h3>
+          <p class="text-sm sm:text-base md:text-lg italic text-luxury-charcoal font-serif font-bold text-left border-l-[3px] border-luxury-gold pl-3 py-1 my-1.5 leading-relaxed bg-luxury-gold/5 rounded-r">
+            "{{processSteps[activeProcessStep()].subtitle}}"
+          </p>
+          <p class="text-xs sm:text-sm text-luxury-charcoal font-normal leading-relaxed mt-2 text-left">
+            {{processSteps[activeProcessStep()].description}}
+          </p>
+        </div>
+
+        <!-- Right Side: Key Deliverables Checklist -->
+        <div class="md:col-span-5 bg-luxury-cream rounded-xl p-5 sm:p-6 border border-luxury-gold/15 w-full">
+          <h4 class="text-[10px] sm:text-xs uppercase tracking-widest text-luxury-charcoal font-mono font-bold mb-4 flex items-center gap-1.5">
+            <mat-icon class="text-base text-luxury-gold">verified</mat-icon> Key Deliverables
+          </h4>
+          <ul class="flex flex-col gap-3 text-left">
+            @for (deliverable of processSteps[activeProcessStep()].deliverables; track deliverable) {
+              <li class="text-[11px] sm:text-xs text-luxury-charcoal/95 font-normal flex items-start gap-2">
+                <span class="text-luxury-gold font-bold shrink-0">✦</span>
+                <span>{{deliverable}}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

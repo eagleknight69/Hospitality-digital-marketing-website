@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-luxury-cream: #FAF8F5;
+  --color-luxury-sand: #F7F4EF;
+  --color-luxury-warm: #F2EEE8;
+  --color-luxury-charcoal: #1B1B1B;
+  --color-luxury-gold: #C5A059;
+  --color-luxury-gold-dark: #A38458;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-luxury-cream);
+  color: var(--color-luxury-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Luxury card styles and scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-luxury-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-luxury-gold);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-luxury-gold-dark);
+}
+
+
+
+

@@ -1,0 +1,35 @@
+<div class="flex items-center gap-3 group select-none">
+  <!-- Monogram SVG representing the interlocking CC -->
+  <div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center transition-all duration-500">
+    <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left/Top 'C' -->
+      <text x="12" y="58" 
+            font-family="'Cormorant Garamond', 'Playfair Display', serif" 
+            font-size="64" 
+            font-weight="300"
+            [attr.fill]="scrolled() || lightMode() ? '#1B1B1B' : '#FAF8F5'"
+            class="transition-colors duration-300">C</text>
+      <!-- Right/Bottom 'C' -->
+      <text x="42" y="78" 
+            font-family="'Cormorant Garamond', 'Playfair Display', serif" 
+            font-size="64" 
+            font-weight="300"
+            [attr.fill]="scrolled() || lightMode() ? '#A38458' : '#C5A059'"
+            class="transition-colors duration-300">C</text>
+    </svg>
+  </div>
+  
+  <!-- Text Branding -->
+  <div class="flex flex-col">
+    <span class="font-serif tracking-[0.25em] text-base md:text-lg font-semibold uppercase leading-tight transition-colors duration-300"
+          [class.text-luxury-charcoal]="scrolled() || lightMode()" 
+          [class.text-white]="!scrolled() && !lightMode()">
+      CAMERA CLOUD
+    </span>
+    <span class="text-[9px] tracking-[0.3em] uppercase opacity-75 font-mono font-medium transition-colors duration-300"
+          [class.text-luxury-gold-dark]="scrolled() || lightMode()" 
+          [class.text-luxury-gold]="!scrolled() && !lightMode()">
+      Hospitality Growth
+    </span>
+  </div>
+</div>

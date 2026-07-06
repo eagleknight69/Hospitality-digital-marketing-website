@@ -1,0 +1,60 @@
+<!-- Sticky Luxury Header -->
+<header id="nav-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+         [class.bg-luxury-sand/90]="scrolled()" [class.backdrop-blur-md]="scrolled()" [class.shadow-md]="scrolled()"
+         [class.border-b]="scrolled()" [class.border-luxury-gold/20]="scrolled()"
+         [class.bg-transparent]="!scrolled()">
+  <div class="max-w-7xl mx-auto px-6 h-20 md:h-24 flex items-center justify-between">
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-3 group">
+      <app-logo [scrolled]="scrolled() || mobileMenuOpen()"></app-logo>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center lg:gap-5 xl:gap-10">
+      <a routerLink="/" class="text-sm tracking-wider uppercase transition-all hover:text-luxury-gold"
+         [class.text-luxury-charcoal]="scrolled()" [class.text-white/95]="!scrolled()">Home</a>
+      <a routerLink="/" fragment="services" class="text-sm tracking-wider uppercase transition-all hover:text-luxury-gold"
+         [class.text-luxury-charcoal]="scrolled()" [class.text-white/95]="!scrolled()">Services</a>
+      <a routerLink="/portfolio" class="text-sm tracking-wider uppercase transition-all hover:text-luxury-gold"
+         [class.text-luxury-charcoal]="scrolled()" [class.text-white/95]="!scrolled()">Portfolio</a>
+      <a routerLink="/" fragment="testimonials" class="text-sm tracking-wider uppercase transition-all hover:text-luxury-gold"
+         [class.text-luxury-charcoal]="scrolled()" [class.text-white/95]="!scrolled()">Testimonials</a>
+      <a routerLink="/" fragment="contact" class="text-sm tracking-wider uppercase transition-all hover:text-luxury-gold"
+         [class.text-luxury-charcoal]="scrolled()" [class.text-white/95]="!scrolled()">Contact Us</a>
+    </nav>
+
+    <!-- Desktop CTA Action -->
+    <div class="hidden lg:flex items-center">
+      <button (click)="openConsultation('schedule')" id="desktop-book-btn" type="button"
+              class="px-5 py-2.5 xl:px-6 xl:py-3 rounded-full border text-xs uppercase tracking-widest font-semibold transition-all duration-300 flex items-center gap-2 shadow-sm cursor-pointer"
+              [class.bg-luxury-charcoal]="scrolled()" [class.text-luxury-cream]="scrolled()" [class.border-transparent]="scrolled()" [class.hover:bg-luxury-gold]="scrolled()" [class.hover:text-luxury-charcoal]="scrolled()"
+              [class.bg-white/10]="!scrolled()" [class.text-white]="!scrolled()" [class.border-white/20]="!scrolled()" [class.hover:bg-white]="!scrolled()" [class.hover:text-luxury-charcoal]="!scrolled()">
+        <mat-icon class="text-base">calendar_today</mat-icon>
+        Book Consultation
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button (click)="mobileMenuOpen.set(!mobileMenuOpen())" class="lg:hidden p-2 rounded-lg cursor-pointer" id="mobile-menu-toggle" type="button"
+            [class.text-luxury-charcoal]="scrolled() || mobileMenuOpen()" [class.text-white]="!scrolled() && !mobileMenuOpen()">
+      <mat-icon class="text-2xl">{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
+    </button>
+  </div>
+
+  <!-- Mobile Collapsible Navigation Menu -->
+  @if (mobileMenuOpen()) {
+    <div class="lg:hidden bg-luxury-sand border-b border-luxury-gold/20 shadow-lg px-6 py-8 flex flex-col gap-6 animate-fade-in">
+      <a routerLink="/" (click)="mobileMenuOpen.set(false)" class="text-lg font-serif tracking-wide text-luxury-charcoal hover:text-luxury-gold transition-colors">Home</a>
+      <a routerLink="/" fragment="services" (click)="mobileMenuOpen.set(false)" class="text-lg font-serif tracking-wide text-luxury-charcoal hover:text-luxury-gold transition-colors">Services</a>
+      <a routerLink="/portfolio" (click)="mobileMenuOpen.set(false)" class="text-lg font-serif tracking-wide text-luxury-charcoal hover:text-luxury-gold transition-colors">Portfolio</a>
+      <a routerLink="/" fragment="testimonials" (click)="mobileMenuOpen.set(false)" class="text-lg font-serif tracking-wide text-luxury-charcoal hover:text-luxury-gold transition-colors">Testimonials</a>
+      <a routerLink="/" fragment="contact" (click)="mobileMenuOpen.set(false)" class="text-lg font-serif tracking-wide text-luxury-charcoal hover:text-luxury-gold transition-colors">Contact Us</a>
+      <hr class="border-luxury-gold/20 my-2">
+      <button (click)="openConsultation('schedule')" id="mobile-book-btn" type="button"
+              class="w-full py-4 rounded-full bg-luxury-charcoal text-luxury-cream text-xs uppercase tracking-widest font-semibold flex items-center justify-center gap-2 hover:bg-luxury-gold hover:text-luxury-charcoal transition-all">
+        <mat-icon class="text-base">calendar_today</mat-icon>
+        Book Consultation
+      </button>
+    </div>
+  }
+</header>

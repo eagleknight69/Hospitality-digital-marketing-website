@@ -1,0 +1,65 @@
+<!-- About Camera Cloud Section -->
+<section id="about" class="py-16 md:py-24 lg:py-32 bg-luxury-cream overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 2xl:max-w-8xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Visual Side -->
+      <div class="lg:col-span-5 relative w-full max-w-md mx-auto lg:max-w-none">
+        <div class="relative z-10 rounded-2xl overflow-hidden aspect-[3/4] shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
+               alt="Hospitality Asset Production Session" referrerpolicy="no-referrer"
+               class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+        </div>
+        <!-- Absolute Background Card -->
+        <div class="absolute -bottom-8 -left-8 w-48 h-48 bg-luxury-sand rounded-2xl -z-0 border border-luxury-gold/25 hidden md:block"></div>
+        <div class="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 bg-luxury-charcoal text-luxury-cream p-4 md:p-6 rounded-2xl shadow-xl z-20 flex flex-col gap-2 max-w-[180px] sm:max-w-[220px]">
+          <span class="text-2xl sm:text-3xl font-serif text-luxury-gold font-bold">14.8x</span>
+          <span class="text-[10px] sm:text-xs uppercase tracking-wider text-white/70 font-mono leading-relaxed">Average ad-spend return for our hotel partners</span>
+        </div>
+      </div>
+
+      <!-- Description Side -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-5 md:gap-6 w-full">
+        <span class="text-xs uppercase tracking-widest text-luxury-gold-dark font-mono font-semibold">Our Heritage</span>
+        <h2 class="text-2xl min-[400px]:text-3xl sm:text-4xl md:text-5xl 2xl:text-6xl font-serif font-light text-luxury-charcoal leading-tight">
+          From Pure Visual Storytellers <br>
+          <span class="italic font-normal text-luxury-gold">to Complete Hospitality Growth Partners.</span>
+        </h2>
+        <p class="text-luxury-charcoal text-sm sm:text-base md:text-lg font-normal leading-relaxed">
+          Camera Cloud began as an elite visual production boutique, flying drones over steep cliffs and lighting historic suites for the world's most beautiful boutique hotels. But we realized beautiful assets were only half the journey. 
+        </p>
+        <p class="text-luxury-charcoal/90 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
+          Today, we are a full-scale direct-booking accelerator. We synthesize award-winning photography and cinematic videography with custom high-speed web architectures, meticulous hospitality branding, and highly profitable Google & Meta ad campaigns. We stop your reliance on costly OTA channels and recapture your profit margins.
+        </p>
+
+        <!-- Dynamic Icon bullets -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 w-full">
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl bg-luxury-sand border border-luxury-gold/30 flex items-center justify-center text-luxury-gold-dark shrink-0">
+              <mat-icon>camera</mat-icon>
+            </div>
+            <div>
+              <h4 class="font-serif font-semibold text-luxury-charcoal text-base">Elite Visual Heritage</h4>
+              <p class="text-xs text-luxury-charcoal/85 mt-1 font-normal">Stunning 8K footage and drone assets that capture the luxury texture of your estate.</p>
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-start">
+            <div class="w-10 h-10 rounded-xl bg-luxury-sand border border-luxury-gold/30 flex items-center justify-center text-luxury-gold-dark shrink-0">
+              <mat-icon>insights</mat-icon>
+            </div>
+            <div>
+              <h4 class="font-serif font-semibold text-luxury-charcoal text-base">Direct Booking Mastery</h4>
+              <p class="text-xs text-luxury-charcoal/85 mt-1 font-normal">High-performance custom web tech coupled with paid media that drives immediate conversions.</p>
+            </div>
+          </div>
+        </div>
+
+        <button (click)="openBooking('brand')" type="button" class="px-8 py-4 bg-luxury-charcoal hover:bg-luxury-gold text-luxury-cream hover:text-luxury-charcoal transition-all text-xs uppercase tracking-widest font-bold rounded-full mt-4 md:mt-6 shadow-md cursor-pointer border-0">
+          Discover Our Formula
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
