@@ -52,12 +52,8 @@ export class ServicesComponent {
     }
   ];
 
-  onServiceClick(svc: { title: string }) {
-    if (svc.title === '360 VR Tour') {
-      window.open('https://virtuglobe.in', '_blank');
-    } else {
-      this.bookingService.openBooking('brand');
-    }
+  onServiceClick() {
+    this.bookingService.openBooking('brand');
   }
 
   openBooking(tab: 'schedule' | 'brand' | 'audit' = 'brand') {

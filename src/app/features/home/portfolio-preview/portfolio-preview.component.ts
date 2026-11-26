@@ -31,7 +31,7 @@ export class PortfolioPreviewComponent {
     {
       id: 'p1',
       title: 'Dawn Over Caldera',
-      hotel: 'Viceroy Caldera Suites, Santorini',
+      hotel: 'Caldera Cliff Suites, Santorini',
       category: 'Photography',
       image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80',
       tag: 'Sunrise Drone & Interior',
@@ -41,7 +41,7 @@ export class PortfolioPreviewComponent {
     {
       id: 'p2',
       title: 'Cinematic Horizon',
-      hotel: 'Aman Sanctuary, Utah Desert',
+      hotel: 'Mirage Canyon Sanctuary, Utah Desert',
       category: 'Videography',
       image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80',
       tag: '8K Promo & Reels Campaign',
@@ -51,7 +51,7 @@ export class PortfolioPreviewComponent {
     {
       id: 'p3',
       title: 'The Digital Hideaway',
-      hotel: 'Soneva Fushi, Maldives',
+      hotel: 'Azure Atoll Villas, Maldives',
       category: 'Web Design',
       image: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1200&q=80',
       tag: 'Bespoke Booking Interface',
@@ -61,7 +61,7 @@ export class PortfolioPreviewComponent {
     {
       id: 'p4',
       title: 'Visual Heritage Identity',
-      hotel: 'Kyoto Ritz Experience, Kyoto',
+      hotel: 'Kamo River Ryokan, Kyoto',
       category: 'Branding',
       image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80',
       tag: 'Brand Book & Sensory Assets',
@@ -71,7 +71,7 @@ export class PortfolioPreviewComponent {
     {
       id: 'p5',
       title: 'Midnight Oasis Sessions',
-      hotel: 'Al Maha Desert Resort, Dubai',
+      hotel: 'Al-Rimal Desert Oasis, Dubai',
       category: 'Photography',
       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
       tag: 'Nocturnal Pool Photography',
@@ -81,7 +81,7 @@ export class PortfolioPreviewComponent {
     {
       id: 'p6',
       title: 'Pure Sensory Narrative',
-      hotel: 'Singita Wilderness Lodges, Serengeti',
+      hotel: 'Savanna Ridge Wilderness Lodges, Serengeti',
       category: 'Videography',
       image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80',
       tag: 'Wildlife Luxury Documentary',

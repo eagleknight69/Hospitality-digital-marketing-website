@@ -25,7 +25,7 @@ export class TestimonialsPreviewComponent implements OnInit, OnDestroy {
   testimonials: Testimonial[] = [
     {
       quote: "Working with Camera Cloud completely transformed our direct-booking profile. We saw a 42% decrease in booking commissions to OTAs in the first 90 days. The cinematography they produced captures the soul of our property like no other agency could.",
-      author: "Dominique de Villepin",
+      author: "Laurent Delacroix",
       role: "General Manager",
       hotel: "Château de Maraval, Dordogne Valley",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",

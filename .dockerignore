@@ -1,0 +1,23 @@
+# Dependencies & build artifacts
+node_modules
+dist
+.angular
+out-tsc
+coverage
+
+# Local secrets & environment files
+.env
+.env.*
+!.env.example
+
+# Version control & CI
+.git
+.gitignore
+.github
+
+# IDE, logs & OS metadata
+.vscode
+.idea
+*.log
+.DS_Store
+Thumbs.db

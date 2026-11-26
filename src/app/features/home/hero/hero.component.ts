@@ -32,7 +32,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     {
       image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1920&q=80',
       title: 'Seaside Infinity Vistas',
-      hotel: 'Viceroy Caldera, Santorini'
+      hotel: 'Caldera Cliff Suites, Santorini'
     },
     {
       image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80',

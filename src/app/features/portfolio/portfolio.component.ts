@@ -46,28 +46,28 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
   // Immersive video carousel data using high-fidelity copyright-free 4K YouTube assets
   videoCarousel = [
     {
-      title: 'Amanpulo Private Island',
-      location: 'PAMALICAN ISLAND, PHILIPPINES',
+      title: 'Coral Atoll Private Island',
+      location: 'PALAWAN ARCHIPELAGO, PHILIPPINES',
       id: 'xeXV1KoX034',
       coverImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
       description: 'Ultra-luxury secluded resort drone loop capturing pristine turquoise shorelines, powdery white sand, and elite villas.'
     },
     {
-      title: 'One&Only Reethi Rah',
+      title: 'Emerald Lagoon Sanctuary',
       location: 'NORTH MALÉ ATOLL, MALDIVES',
       id: 'W4YfDg-dKzk',
       coverImage: 'https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=1200&q=80',
       description: 'Spectacular overwater luxury island sweeps showing iconic coral lagoons, elegant palm fringes, and endless ocean horizons.'
     },
     {
-      title: 'Nihi Sumba Wild Reserve',
+      title: 'Cliffside Canopy Reserve',
       location: 'SUMBA ISLAND, INDONESIA',
       id: 'H1CIBqDeWQ0',
       coverImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80',
       description: 'Wild cliffside panoramas and eco-luxe canopy villas reflecting untouched raw nature balanced with elite hospitality.'
     },
     {
-      title: 'Soneva Jani Overwater Atoll',
+      title: 'Azure Overwater Atoll',
       location: 'NOONU ATOLL, MALDIVES',
       id: '278IRQ6HSi4',
       coverImage: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
@@ -111,7 +111,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       id: 'reel-4',
-      brand: 'VELAA ISLAND',
+      brand: 'AZURE ISLAND',
       title: 'Peaceful fresh rain droplets against elite suites',
       videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-rain-drops-on-window-vertical-40011-large.mp4',
       coverImage: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80',
@@ -178,7 +178,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
   projects = signal<PortfolioProject[]>([
     {
       id: 'p-jaisalmer',
-      title: 'Gobindgarh Jaisalmer',
+      title: 'Golden Sandstone Heritage Palace',
       location: 'JAISALMER, INDIA',
       year: 2024,
       category: 'Heritage & Palace',
@@ -222,7 +222,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       id: 'p-maldives',
-      title: 'Velaa Private Island Overwater Oasis',
+      title: 'Azure Lagoon Overwater Oasis',
       location: 'MALE, MALDIVES',
       year: 2023,
       category: 'Villas & Suites',
@@ -244,7 +244,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       id: 'p-dubai',
-      title: 'Al-Maha Heritage Oasis',
+      title: 'Al-Rimal Heritage Oasis',
       location: 'DUBAI DESERT, UAE',
       year: 2024,
       category: 'Resorts & Lodges',
@@ -255,7 +255,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit, OnDestroy {
     },
     {
       id: 'p-tuscany',
-      title: 'Villa d\'Este Fine Dining Pavilion',
+      title: 'Val d\'Orcia Fine Dining Pavilion',
       location: 'TUSCANY, ITALY',
       year: 2023,
       category: 'Fine Dining & Cafes',

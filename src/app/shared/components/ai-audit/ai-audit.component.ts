@@ -95,22 +95,23 @@ Unfortunately, the server was unable to stream the full AI report in real-time. 
   formatMarkdown(md: string): string {
     if (!md) return '';
     let html = md;
-    
-    // Replace headings (###, ##, #)
-    html = html.replace(/### (.*?)(\n|$)/g, '<h4 class="text-lg font-serif font-bold text-luxury-gold mt-6 mb-2">$1</h4>');
-    html = html.replace(/## (.*?)(\n|$)/g, '<h3 class="text-xl font-serif font-bold text-luxury-charcoal mt-8 mb-3 border-b border-luxury-gold/20 pb-1">$1</h3>');
-    html = html.replace(/# (.*?)(\n|$)/g, '<h2 class="text-2xl font-serif font-bold text-luxury-charcoal mt-10 mb-4">$1</h2>');
-    
+
+    // Replace headings (###, ##, #) while preserving line boundaries
+    html = html.replace(/^### (.*)$/gm, '<h4 class="text-lg font-serif font-bold text-luxury-gold mt-6 mb-2">$1</h4>');
+    html = html.replace(/^## (.*)$/gm, '<h3 class="text-xl font-serif font-bold text-luxury-charcoal mt-8 mb-3 border-b border-luxury-gold/20 pb-1">$1</h3>');
+    html = html.replace(/^# (.*)$/gm, '<h2 class="text-2xl font-serif font-bold text-luxury-charcoal mt-10 mb-4">$1</h2>');
+
     // Replace bold formatting (**text**)
     html = html.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-luxury-charcoal">$1</strong>');
-    
+
     // Replace bullet points
-    html = html.replace(/^\s*-\s*(.*?)(\n|$)/gm, '<li class="ml-4 list-disc text-luxury-charcoal/80 mb-2 font-light">$1</li>');
-    
+    html = html.replace(/^\s*-\s*(.*)$/gm, '<li class="ml-4 list-disc text-luxury-charcoal/80 mb-2 font-light">$1</li>');
+
     // Line breaks
     html = html.replace(/\n/g, '<br>');
 
-    // Clean double line breaks
+    // Clean extra breaks around block elements and collapse excessive breaks
+    html = html.replace(/(<\/(?:h2|h3|h4|li)>)<br>/g, '$1');
     html = html.replace(/(<br>){3,}/g, '<br><br>');
 
     return html;
